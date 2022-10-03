@@ -140,9 +140,10 @@ next()
       const seconds = Math.floor((distance % (1000 *60))/(1000));
  if(distance<0){
  
- 
+  
   clearInterval(ab);
-  endQuiz();
+  alert("Quiz ended!!!!!")
+  history("/play/result", {state:{stats}})
    setTime({minutes:0, seconds:0})
    
 
@@ -242,12 +243,8 @@ if(fifty.have>0 && !fifty.used){
   const check = currentQuestionindex === 0? true:false;
   const disable = nextQestion===undefined? true:false;
   const endQuiz = ()=>{
-   
-
   alert("Quiz ended!!!!!")
   history("/play/result", {state:{stats}})
-
-  
   
   }
   useEffect(display, [])
@@ -265,9 +262,6 @@ if(fifty.have>0 && !fifty.used){
     <h1 className='quiz-head'>Free Quiz Mode</h1>
     <div className='quiz-container'>
     <div className='icons'>
-    {console.log("correct:" + stats.NoHint)}
-    {console.log("tried:" + stats.tried)}
-    {console.log("fifty:" + stats.NoFifty )}
 
         <span onClick={handlefifty} className='fa fa-eye eye'>{fifty.have}</span>
         <span onClick={handleHint} className='fa fa-lightbulb light'>{Hint}</span>
